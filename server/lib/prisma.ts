@@ -4,11 +4,11 @@ import { Pool, neonConfig, type PoolClient } from '@neondatabase/serverless';
 
 dotenv.config();
 
-// Vercel and modern edge runtimes have a native WebSocket global.
-// Only inject the 'ws' package in plain Node.js (local dev) where it is missing.
-if (typeof WebSocket === 'undefined') {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const ws = require('ws');
+// Vercel serverless and modern runtimes expose a native WebSocket global.
+// In plain Node.js (local dev) it is absent, so we load the 'ws' package.
+// We use a dynamic import (valid ESM) instead of require() which is CJS-only.
+if (typeof globalThis.WebSocket === 'undefined') {
+  const { default: ws } = await import('ws');
   neonConfig.webSocketConstructor = ws;
 }
 
