@@ -24,7 +24,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === 'production'
-        ? process.env.FRONTEND_URL
+        ? (process.env.FRONTEND_URL ? process.env.FRONTEND_URL : false)
         : ['http://localhost:5173', 'http://192.168.1.69:5173'],
     credentials: true,
   }),
@@ -471,22 +471,26 @@ app.put('/api/config/:key', requireAdminAuth, async (req, res) => {
   }
 });
 
-const startServer = async () => {
-  try {
-    await prisma.$connect();
-    console.log('Database connected');
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
-};
+export default app;
 
-process.on('SIGINT', async () => {
-  await prisma.$disconnect();
-  process.exit(0);
-});
+if (process.env.NODE_ENV !== 'production') {
+  const startServer = async () => {
+    try {
+      await prisma.$connect();
+      console.log('Database connected');
+      app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+      });
+    } catch (error) {
+      console.error('Failed to start server:', error);
+      process.exit(1);
+    }
+  };
 
-startServer();
+  process.on('SIGINT', async () => {
+    await prisma.$disconnect();
+    process.exit(0);
+  });
+
+  startServer();
+}
