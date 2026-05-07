@@ -326,21 +326,26 @@ export default function Footer() {
 
             {/* Center — legal links (hidden on mobile) */}
             <div className="hidden sm:flex items-center gap-3">
-              {(['Privacy Policy', 'Terms of Service', 'Cookie Policy'] as const).map(
-                (label, i, arr) => (
-                  <span key={label} className="flex items-center gap-3">
-                    <span
-                      className="font-mono text-[11px] text-white/40 hover:text-white/70
-                        transition-colors duration-200 cursor-pointer"
-                    >
-                      {label}
-                    </span>
-                    {i < arr.length - 1 && (
-                      <span className="text-white/20 text-[11px]">·</span>
-                    )}
-                  </span>
-                )
-              )}
+              {(
+                [
+                  { label: 'Privacy Policy',   path: '/privacy'  },
+                  { label: 'Terms of Service', path: '/terms'    },
+                  { label: 'Cookie Policy',    path: '/cookies'  },
+                ] as const
+              ).map(({ label, path }, i, arr) => (
+                <span key={label} className="flex items-center gap-3">
+                  <Link
+                    to={path}
+                    className="font-mono text-[11px] text-white/40 hover:text-white/70
+                      transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                  {i < arr.length - 1 && (
+                    <span className="text-white/20 text-[11px]">·</span>
+                  )}
+                </span>
+              ))}
             </div>
 
             {/* Right — made in Kigali */}

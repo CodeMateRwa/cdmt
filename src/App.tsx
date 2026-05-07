@@ -18,6 +18,9 @@ import OurWork           from './pages/OurWork'
 import Team              from './pages/Team'
 import Contact           from './pages/Contact'
 import ApplyProgram      from './pages/ApplyProgram'
+import PrivacyPolicy    from './pages/PrivacyPolicy'
+import TermsOfService   from './pages/TermsOfService'
+import CookiePolicy     from './pages/CookiePolicy'
 
 import ProtectedRoute from './components/layout/ProtectedRoute'
 import Admin             from './pages/Admin'
@@ -47,6 +50,9 @@ function AnimatedRoutes() {
             path="/apply/training"
             element={<ApplyProgram programKey="training" />}
           />
+          <Route path="/privacy"  element={<PrivacyPolicy />}  />
+          <Route path="/terms"    element={<TermsOfService />}  />
+          <Route path="/cookies"  element={<CookiePolicy />}    />
           <Route 
             path="/admin/*" 
             element={
