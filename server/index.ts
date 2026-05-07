@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import { prisma } from './lib/prisma';
+import { prisma } from './lib/prisma.js';
 
 dotenv.config();
 
