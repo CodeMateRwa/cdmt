@@ -41,20 +41,20 @@ export default function SplashScreen({ onDone }: Props) {
       animate={exiting ? { y: '-100%' } : { y: 0 }}
       transition={{ duration: 0.5, ease: [0.4, 0, 1, 1] as const }}
     >
-      {/* Ghost CMR watermark */}
+      {/* Ghost Logo watermark */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         style={{ zIndex: 0 }}
       >
-        <span
-          className="font-display font-black leading-none"
+        <img
+          src="/logo.jpg"
+          alt=""
+          className="w-full max-w-[80vw] object-contain"
           style={{
-            fontSize: '30vw',
-            color: 'rgba(255,255,255,0.03)',
+            filter: 'brightness(0) invert(1)',
+            opacity: 0.03,
           }}
-        >
-          CMR
-        </span>
+        />
       </div>
 
       {/* Radial glows */}
