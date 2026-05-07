@@ -20,15 +20,14 @@ const BOOTSTRAP_CONFIG_KEYS = [
 ] as const;
 const PUBLIC_CONFIG_KEYS = new Set(BOOTSTRAP_CONFIG_KEYS);
 
-app.use(
-  cors({
-    origin:
-      process.env.NODE_ENV === 'production'
-        ? (process.env.FRONTEND_URL ? process.env.FRONTEND_URL : false)
-        : ['http://localhost:5173', 'http://192.168.1.69:5173'],
-    credentials: true,
-  }),
-);
+if (process.env.NODE_ENV !== 'production') {
+  app.use(
+    cors({
+      origin: ['http://localhost:5173', 'http://192.168.1.69:5173'],
+      credentials: true,
+    }),
+  );
+}
 app.use(express.json({ limit: '10mb' }));
 
 function getAdminPassword() {
