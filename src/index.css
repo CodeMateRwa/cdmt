@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #f8faf8;
+  color: #0f1f12;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GLASS UTILITIES ───────────────────────── */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 92, 42, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(26, 92, 42, 0.06),
+              0 1px 4px rgba(26, 92, 42, 0.04);
+}
+
+.glass-nav {
+  background: rgba(248, 250, 248, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(26, 92, 42, 0.1);
+  box-shadow: 0 1px 20px rgba(26, 92, 42, 0.06);
+}
+
+.glass-card-dark {
+  background: rgba(26, 92, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(76, 205, 110, 0.2);
+  border-radius: 1rem;
+}
+
+/* ── TEXT GRADIENT ─────────────────────────── */
+
+.text-gradient {
+  background: linear-gradient(135deg, #4ccd6e 0%, #2e9e4f 50%, #6fcf6f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-light {
+  background: linear-gradient(135deg, #2e9e4f 0%, #4ccd6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── DOT PATTERN ───────────────────────────── */
+
+.dot-pattern {
+  background-image: radial-gradient(circle, #1a5c2a18 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── NOISE OVERLAY ─────────────────────────── */
+
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+}
+
+/* ── MARQUEE ───────────────────────────────── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+
+/* ── HERO ORBS ─────────────────────────────── */
+
+@keyframes pulse-orb {
+  0%   { transform: scale(1);    opacity: 0.5; }
+  100% { transform: scale(1.18); opacity: 0.9; }
+}
+
+/* ── PING (hero card dot) ──────────────────── */
+
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* ── SCAN LINES ────────────────────────────── */
+
+@keyframes scan {
+  from { transform: translateX(-110%); }
+  to   { transform: translateX(110%); }
+}
+
+/* ── FADE IN ───────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MAP PULSE ─────────────────────────────── */
+
+@keyframes map-pulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(4); opacity: 0;   }
+}
+.map-pulse {
+  animation: map-pulse 2.2s ease-out infinite;
+  transform-origin: center;
+}
+
+/* ── SCROLLBAR HIDE ────────────────────────── */
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── SELECT OPTION FIX ─────────────────────── */
+
+select option {
+  background-color: #ffffff;
+  color: #0f1f12;
+}
+
+/* ── APPLY FORM FIELD STABILITY ───────────────────── */
+
+.application-panel-field,
+.application-panel-field:focus,
+.application-panel-field:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.application-panel-field:focus {
+  box-shadow: 0 0 0 3px rgba(76, 205, 110, 0.12);
+}
+
+.application-panel-field:-webkit-autofill,
+.application-panel-field:-webkit-autofill:hover,
+.application-panel-field:-webkit-autofill:focus,
+.application-panel-field:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.08) inset;
+  transition: background-color 9999s ease-in-out 0s;
+  caret-color: #ffffff;
+}
+
+/* ── MOBILE NAV PADDING ────────────────────── */
+
+@media (max-width: 768px) {
+  main:not(.admin-layout) {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ── SHAKE ─────────────────────────────────── */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60%  { transform: translateX(-6px); }
+  40%, 80%  { transform: translateX(6px); }
+}
+
+/* ── SLOW ZOOM (hero bg) ────────────────────── */
+
+@keyframes slow-zoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0);  }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 10s ease-out forwards;
+}
+/* ── GRAIN OVERLAY ──────────────────────────────── */
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── REVERSE MARQUEE ────────────────────────────── */
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-33.333%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
+/* ── LINE CLAMP ─────────────────────────────────── */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

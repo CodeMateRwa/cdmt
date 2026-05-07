@@ -1,0 +1,28 @@
+{
+  "health": {
+    "status": "ok",
+    "timestamp": "2026-05-07T15:24:03.339Z"
+  },
+  "publicHomeStatus": 200,
+  "publicAdminStatus": 200,
+  "unauthorizedMessagesStatus": 401,
+  "loginAuthenticated": true,
+  "sessionAuthenticated": {
+    "authenticated": true
+  },
+  "createdMessageId": "c9cea214-894b-4dbd-aee4-5bcf58f2acb0",
+  "messageVisibleToAdmin": true,
+  "messageMarkedRead": true,
+  "bootstrapCounts": {
+    "team": 8,
+    "work": 6,
+    "services": 6
+  },
+  "homeHeroTag": "[ DIGITAL · CREATIVE · TECH ]",
+  "imageOverrideRoundTrip": "https://res.cloudinary.com/demo/image/upload/sample.jpg",
+  "settingsRoundTrip": "Verification status 1778167451871",
+  "logoutAuthenticated": {
+    "authenticated": false
+  },
+  "cloudinaryConfigured": false
+}

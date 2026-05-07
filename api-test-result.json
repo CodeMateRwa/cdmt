@@ -1,0 +1,15 @@
+{
+    "HealthStatus":  "ok",
+    "UnauthorizedMessagesStatus":  401,
+    "LoginAuthenticated":  true,
+    "SessionAuthenticated":  true,
+    "MessageCreated":  true,
+    "MessageVisibleToAdmin":  true,
+    "MessageMarkedRead":  true,
+    "SettingsRoundTrip":  "Verification run 1778166595",
+    "ImageOverrideRoundTrip":  "https://res.cloudinary.com/demo/image/upload/sample.jpg",
+    "TeamCount":  1,
+    "WorkCount":  1,
+    "ServiceCount":  18,
+    "LogoutAuthenticated":  false
+}
