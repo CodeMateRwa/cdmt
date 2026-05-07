@@ -47,7 +47,7 @@ export default function SplashScreen({ onDone }: Props) {
         style={{ zIndex: 0 }}
       >
         <img
-          src="/logo.jpg"
+          src="/logo.png"
           alt=""
           className="w-full max-w-[80vw] object-contain"
           style={{
@@ -71,7 +71,7 @@ export default function SplashScreen({ onDone }: Props) {
       <div className="absolute inset-0 flex items-center justify-center flex-col" style={{ zIndex: 10 }}>
         {/* Logo */}
         <motion.img
-          src="/logo.jpg"
+          src="/logo.png"
           alt="CodeMateRwa"
           className="h-20 w-auto object-contain"
           style={{ filter: 'brightness(0) invert(1)' }}
