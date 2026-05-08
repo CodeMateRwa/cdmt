@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { unsplash } from '../lib/images';
 import { readTeamMembers, type TeamMember } from '../lib/siteContent';
+import TeamHeroSlideshow from '../components/ui/TeamHeroSlideshow';
 
 // Inline social icons (lucide-react doesn't include these in this version)
 function LinkedinIcon({ size = 13 }: { size?: number }) {
@@ -52,26 +53,6 @@ const roles: RoleItem[] = [
   { title: 'Marketing Intern',  type: 'Internship', dept: 'Strategy'    },
 ];
 
-// ─── TeamHero ─────────────────────────────────────────────────────────────────
-
-function TeamHero() {
-  return (
-    <section className="relative pt-40 pb-24 px-6 md:px-16 lg:px-24 overflow-hidden bg-codemate-bg">
-      <div className="absolute inset-0 dot-pattern opacity-50 pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(26,92,42,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,92,42,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none" style={{ background: 'radial-gradient(ellipse at top, rgba(46,158,79,0.07) 0%, transparent 70%)' }} />
-      <div className="relative z-10 max-w-[1400px] mx-auto">
-        <motion.p className="font-mono text-xs text-codemate-highlight" style={{ letterSpacing: '0.3em', textTransform: 'uppercase' }} variants={headerVariants} initial="hidden" animate="visible">[ 01. THE TEAM ]</motion.p>
-        <motion.h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-codemate-text leading-tight mt-4 max-w-4xl" variants={headerVariants} initial="hidden" animate="visible" transition={{ duration: 0.65, delay: 0.1 }}>
-          The people behind{' '}<span className="text-gradient">every pixel.</span>
-        </motion.h1>
-        <motion.p className="font-sans text-sm text-codemate-subtext max-w-md leading-relaxed mt-6" variants={headerVariants} initial="hidden" animate="visible" transition={{ duration: 0.65, delay: 0.2 }}>
-          8 specialists. One shared obsession: shipping products that outlast the brief and earn referrals.
-        </motion.p>
-      </div>
-    </section>
-  );
-}
 
 // ─── TeamCard ─────────────────────────────────────────────────────────────────
 
@@ -459,7 +440,7 @@ export default function Team() {
 
   return (
     <main>
-      <TeamHero />
+      <TeamHeroSlideshow />
       <TeamGrid onSelect={setSelected} />
       <ValuesSection />
       <CultureSection />
