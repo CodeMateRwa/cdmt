@@ -149,7 +149,7 @@ export default function Footer() {
                   className="font-mono text-[11px] uppercase text-white/50 mt-3"
                   style={{ letterSpacing: '0.25em' }}
                 >
-                  Empowering Digital Life Innovation
+                  Refined Digital, Creative, and Strategic Engineering
                 </p>
 
                 <p className="font-sans text-sm text-white/65 leading-relaxed mt-4 max-w-[220px]">

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 type Props = { onDone: () => void }
 
-const tagline = 'Empowering Digital Life Innovation'
+const tagline = 'Refined Digital, Creative, and Strategic Engineering'
 
 export default function SplashScreen({ onDone }: Props) {
   const [charCount, setCharCount] = useState(0)
@@ -20,16 +20,16 @@ export default function SplashScreen({ onDone }: Props) {
           count++
           setCharCount(count)
           if (count >= tagline.length) clearInterval(interval)
-        }, 35)
+        }, 30)
         timers.push(interval as unknown as ReturnType<typeof setTimeout>)
       }, 700),
     )
 
     // Start exit wipe at 2200ms
-    timers.push(setTimeout(() => setExiting(true), 2200))
+    timers.push(setTimeout(() => setExiting(true), 2500))
 
-    // Call onDone at 2700ms
-    timers.push(setTimeout(() => onDone(), 2700))
+    // Call onDone at 3000ms
+    timers.push(setTimeout(() => onDone(), 3000))
 
     return () => timers.forEach(t => clearTimeout(t))
   }, [onDone])
@@ -37,7 +37,7 @@ export default function SplashScreen({ onDone }: Props) {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] overflow-hidden"
-      style={{ backgroundColor: '#1a5c2a' }}
+      style={{ backgroundColor: '#0e402d' }}
       animate={exiting ? { y: '-100%' } : { y: 0 }}
       transition={{ duration: 0.5, ease: [0.4, 0, 1, 1] as const }}
     >

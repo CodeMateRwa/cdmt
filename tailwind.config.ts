@@ -9,17 +9,17 @@ const config: Config = {
     extend: {
       colors: {
         codemate: {
-          bg:       '#f8faf8',
+          bg:       '#fdfefd',
           surface:  '#ffffff',
-          surface2: '#f0f5f0',
-          glass:    'rgba(255,255,255,0.75)',
-          border:   'rgba(26,92,42,0.12)',
-          accent:   '#1a5c2a',
-          highlight:'#2e9e4f',
-          bright:   '#4ccd6e',
-          muted:    '#e8f5eb',
-          text:     '#0f1f12',
-          subtext:  '#4a6b52',
+          surface2: '#f4f9f4',
+          glass:    'rgba(255,255,255,0.85)',
+          border:   'rgba(14,64,45,0.08)',
+          accent:   '#0e402d', // Deep Forest
+          highlight:'#1a5c2a',
+          bright:   '#2d6a4f',
+          muted:    '#ecf3f0',
+          text:     '#051a12',
+          subtext:  '#2d4a3e',
           white:    '#ffffff',
         },
       },
